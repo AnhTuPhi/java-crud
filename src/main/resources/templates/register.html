@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>User Managerment</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	  <!-- Include menu.html -->
+      <th:block th:include="/menu"></th:block>
+      <div class="container">
+      		<h1>Register User</h1>
+      		<form action="#" th:action="@{/register}" th:object="${user}" method="POST">
+      			<input type="text" th:field="*{fullname}" placeholder="Full name" class="form-control mb-4 col-4"/>
+      			<input type="text" th:field="*{email_user}" placeholder="Email" class="form-control mb-4 col-4"/>
+      			<input type="text" th:field="*{username}" placeholder="Username" class="form-control mb-4 col-4"/>
+      			<input type="password" th:field="*{encrytedPassword}" placeholder="Password" class="form-control mb-4 col-4"/>
+      			<!-- <input type="text" th:field="*{gender_user}" placeholder="Gender" class="form-control mb-4 col-4"/> -->
+      			<!-- <input type="text" th:field="*{user_role}" placeholder="Role" class="form-control mb-4 col-4"/> -->
+      			 <select th:field="*{gender_user}" name="gender_user">
+                         <option value="Male">Male</option>
+                         <option value="Female">Female</option>
+                  </select>
+      			<input type="checkbox" name="user_role" value="Admin" th:checked="${user_role}" th:field="*{user_role}"/>
+      			<label for="user_role_admin"> Admin</label><br>
+      			<input type="checkbox" name="user_role" value="User" th:checked="${user_role}" th:field="*{user_role}"/>
+      			<label for="user_role_user"> User</label><br>
+      			<button type="submit" class="btn btn-info col-2">Register</button>
+      		</form>
+      		<a th:href="@{/}">Back to previous page</a>
+      </div>
+</body>
+</html>
