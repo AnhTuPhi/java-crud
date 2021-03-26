@@ -11,5 +11,5 @@ public interface UserService {
 	void registerUser(User user);
 	User getUserById(long id);
 	void deleteUserById(Long id);
-	Page<User> findPaginated(int pageNum, int pageSize);
+	Page<User> findPaginated(int pageNum, int pageSize, String sortField, String sortDirection);
 }
